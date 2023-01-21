@@ -89,14 +89,10 @@ window.onload = async () => {
 
 // business submit button
 
-const submit = document.getElementById('submit')
-submit.addEventListener('click', async (event) => {
+document.getElementById('submit').addEventListener('click', async (event) => {
 	event.preventDefault()
 	let business = document.getElementById('business').value
-	console.log(business)
+	let data = await getFoursquare(business)
+	myMap.businesses = processBusinesses(data)
+	myMap.addMarkers()
 })
-
-
-
-
-
